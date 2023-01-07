@@ -2,14 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-link = "http://suninjuly.github.io/find_link_text"
+link = "http://suninjuly.github.io/find_xpath_form"
 
 try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    check = browser.find_element(By.LINK_TEXT, '224592')
-    check.click()
     input1 = browser.find_element(By.NAME, "first_name")
     input1.send_keys("Ivan")
     input2 = browser.find_element(By.NAME, "last_name")
@@ -18,7 +16,7 @@ try:
     input3.send_keys("Smolensk")
     input4 = browser.find_element(By.ID, "country")
     input4.send_keys("Russia")
-    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
+    button = browser.find_element(By.XPATH, "//button[contains(text(),'Submit')]")
     button.click()
 
 finally:

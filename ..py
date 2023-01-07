@@ -1,4 +1,7 @@
 import math
 
-a = str(math.ceil(math.pow(math.pi, math.e)*10000))
-print(a)
+def calc(x):
+  return str(math.log(abs(12*math.sin(int(x)))))
+
+
+print(calc(281))

@@ -4,21 +4,21 @@ import time
 import math
 
 try:
-    link = "https://suninjuly.github.io/math.html"
+    link = "http://suninjuly.github.io/get_attribute.html"
     browser = webdriver.Chrome()
     browser.get(link)
 
     def calc(x):
         return str(math.log(abs(12 * math.sin(int(x)))))
 
-    x_element = browser.find_element(By.CSS_SELECTOR, '.form-group span:nth-child(2)')
-    x = x_element.text
+    x_element = browser.find_element(By.ID, 'treasure')
+    x = x_element.get_attribute('valuex')
     y = calc(x)
 
-    element = browser.find_element(By.CSS_SELECTOR, '.form-control')
+    element = browser.find_element(By.ID, 'answer')
     element.send_keys(y)
 
-    element = browser.find_element(By.CSS_SELECTOR, '.form-check.form-check-custom input')
+    element = browser.find_element(By.ID, 'robotCheckbox')
     element.click()
 
     element = browser.find_element(By.CSS_SELECTOR, '[value="robots"]')
